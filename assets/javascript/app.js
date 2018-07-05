@@ -2,14 +2,13 @@
 
 var number = 60;
 var intervalId;
+var button = document.getElementById("start");
 
 $("document").ready(function () {
 
+
     
-    $("#start").on("click", run);
-
-
-    function run() {
+button.onclick = function run() {
         clearInterval(intervalId);
         intervalId = setInterval(decrement, 1000);
     }
