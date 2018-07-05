@@ -12,6 +12,12 @@ h1 {
 
 }
 
+h2 {
+    font-family: 'Shrikhand', cursive;
+    font-size: 30px;
+    color: #ff0080;
+}
+
 .maincontent {
         max-width: 960px;
         margin: auto;
