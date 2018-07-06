@@ -2,17 +2,23 @@
 
 var number = 60;
 var intervalId;
-var button = document.getElementById("start");
+var startbutton = document.getElementById("start");
+var submitbutton = document.getElementById("submit");
+var correctanswers = ["Teal"]
+
 
 $("document").ready(function () {
+    $("#questions").hide();
+    $("#results").hide();
 
 
-    
-button.onclick = function run() {
+    startbutton.onclick = function run() {
         clearInterval(intervalId);
         intervalId = setInterval(decrement, 1000);
+        $("#questions").show();
     }
-run();
+    
+
     function decrement() {
         number--;
 
@@ -20,12 +26,27 @@ run();
 
         if (number === 0) {
             stop();
+
         }
     }
 
     function stop() {
         clearInterval(intervalId);
+        $("#results").show();
+checkanswers();
 
-        
+    }
+    startbutton.onclick = function run() {
+        clearInterval(intervalId);
+        intervalId = setInterval(decrement, 1000);
+        $("#questions").show();
+    }
+    $("#triviaquestions").submit(function (event) {
+        stop();
+console.log(event)
+
+    })
+    function checkanswers() {
+       
     }
 })
