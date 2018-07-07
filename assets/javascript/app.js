@@ -41,7 +41,7 @@ checkanswers();
         intervalId = setInterval(decrement, 1000);
         $("#questions").show();
     }
-    $("#triviaquestions").submit(function (event) {
+    $("#questions").submit(function (event) {
         stop();
 console.log(event)
 
