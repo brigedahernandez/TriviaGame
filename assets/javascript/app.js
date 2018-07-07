@@ -4,7 +4,7 @@ var number = 60;
 var intervalId;
 var startbutton = document.getElementById("start");
 var submitbutton = document.getElementById("submit");
-var correctanswers = ["Teal"]
+var correctanswers = ["Teal","fightclub"]
 
 
 $("document").ready(function () {
@@ -17,6 +17,11 @@ $("document").ready(function () {
         intervalId = setInterval(decrement, 1000);
         $("#questions").show();
     }
+
+    submitbutton.onclick = function stop() {
+        $("#results").show();
+        $("#questions").hide();
+    }
     
 
     function decrement() {
@@ -26,27 +31,33 @@ $("document").ready(function () {
 
         if (number === 0) {
             stop();
-
+            event.preventDefault();
         }
     }
 
-    function stop() {
-        clearInterval(intervalId);
-        $("#results").show();
-checkanswers();
+    //function stop() {
+        //clearInterval(intervalId);
+        //event.preventDefault();
+//checkanswers();
 
     }
-    startbutton.onclick = function run() {
+   
+    //if i comment this thing out, it does something weird with the jquery in the next code block 
+    ,startbutton.onclick = function run() {
         clearInterval(intervalId);
         intervalId = setInterval(decrement, 1000);
         $("#questions").show();
     }
-    $("#questions").submit(function (event) {
+,$("#questions").get(function (event) {
+        event.preventDefault();
         stop();
+        
 console.log(event)
 
     })
     function checkanswers() {
-       
+        event.preventDefault();
+        $("#results").show();
+        
     }
 })
