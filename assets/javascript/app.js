@@ -10,6 +10,7 @@ var correctanswers = ["Teal","fightclub"]
 $("document").ready(function () {
     $("#questions").hide();
     $("#results").hide();
+    $("#submitanswers").hide();
 
 
     startbutton.onclick = function run() {
@@ -31,7 +32,7 @@ $("document").ready(function () {
 
         if (number === 0) {
             stop();
-            event.preventDefault();
+            
         }
     }
 
@@ -49,15 +50,9 @@ $("document").ready(function () {
         $("#questions").show();
     }
 ,$("#questions").get(function (event) {
-        event.preventDefault();
+        
         stop();
         
 console.log(event)
 
-    })
-    function checkanswers() {
-        event.preventDefault();
-        $("#results").show();
-        
-    }
-})
+    }))
