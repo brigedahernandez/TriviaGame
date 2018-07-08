@@ -1,30 +1,30 @@
-//TIMER 
-
+//TIMER and buttons
 var number = 60;
 var intervalId;
 var startbutton = document.getElementById("start");
 var submitbutton = document.getElementById("submit");
 var correctanswers = ["Teal","fightclub"]
 
-
+//when the page loads, questions and results wil be hidden.
 $("document").ready(function () {
     $("#questions").hide();
     $("#results").hide();
     $("#submitanswers").hide();
 
-
+//when the start button is clicked,the questions and submit button will appear
     startbutton.onclick = function run() {
         clearInterval(intervalId);
         intervalId = setInterval(decrement, 1000);
         $("#questions").show();
+        $("#submitanswers").show();
     }
-
-    submitbutton.onclick = function stop() {
+//If I take this out, the timer doesn't work... 
+    submitanswers.onclick = function stop() {
         $("#results").show();
         $("#questions").hide();
     }
     
-
+//function to subtract from and stop timer
     function decrement() {
         number--;
 
@@ -32,27 +32,32 @@ $("document").ready(function () {
 
         if (number === 0) {
             stop();
-            
+            clearInterval(intervalId);
         }
     }
+    //When submit button is pressed, it will loop through the array and compare user answers with correct answers. 
+function showResults (){
 
-    //function stop() {
-        //clearInterval(intervalId);
-        //event.preventDefault();
-//checkanswers();
+    var userAnswer = "";
+    var numCorrect = 0;
 
-    }
-   
-    //if i comment this thing out, it does something weird with the jquery in the next code block 
-    ,startbutton.onclick = function run() {
-        clearInterval(intervalId);
-        intervalId = setInterval(decrement, 1000);
-        $("#questions").show();
-    }
-,$("#questions").get(function (event) {
-        
-        stop();
-        
-console.log(event)
+for (var i=0; i<correctanswers.length; i++);
+    userAnswer = $('#radio').on("click");
+    if(userAnswer===correctanswers[i]){
 
-    }))
+        numCorrect++;
+    
+    results.innerHTML = numCorrect + "out of" + correctanswers.length
+$("#results").show();
+}
+
+
+
+
+
+}
+//and then it will show the results 
+submitanswers.onclick = function() {
+    showResults();
+}
+})
